@@ -1,13 +1,15 @@
 /**
 * <description of project>
 * @author Ami Gianchandani
-* 
+* @date September 30, 2016
+*
 */
 
 import java.util.Scanner;
 public class FarmersGame
 {
 	//global scope
+	//default is false 
 	public static boolean cabb;
 	public static boolean sheep;
 	public static boolean wolf;
@@ -24,9 +26,7 @@ public class FarmersGame
 	displayGameStatus();
 	
 	game();
-		
-	animalTransport(animal);	
-	
+			
 	}
 	
 	public static void welcome()
@@ -88,21 +88,88 @@ public class FarmersGame
 	{
 		Scanner kb = new Scanner(System.in); //getting user input
 		
-		System.out.print("Who do you want to move to the other side?: ");
-		String animal = kb.nextLine(); 
-		//want to change to char
+		while (!(cabb && sheep && wolf && human) && alive())
+		{
 		
+			System.out.print("Who do you want to move to the other side?: ");
+			String animal = kb.nextLine(); 
+			//want to change to char
 		
+			if (animal.equals("C") && human == cabb)
+			{
+				cabb = !cabb;
+				human = !human;	
+			}	
 		
+			if (animal.equals("S") && human == sheep)
+			{	
+				sheep = !sheep;
+				human = !human;
+			}
 		
+			if (animal.equals("W") && human == wolf)
+			{	
+				wolf = !wolf;
+				human = !human;
+			}	
+			
+			if (animal.equals("H"))
+				human = !human;
+				
+			if (alive() && cabb == true && sheep == true && wolf == true && human == true)
+				System.out.print("YOU WIN!!");
+							
+			displayGameStatus();
+		
+		}
+	
 		
 	}
 	
-	public static boolean animalTransport(animal)
+// 	public static boolean gameOver(alive)
+// 	{
+// 		if (alive == true && cabb == true && sheep == true && wolf == true && human == true)
+// 		{	
+// 			System.out.print("YOU WIN!!");
+// 			return true;
+// 		}	
+// 		
+// 		else	
+// 			return false;
+// 
+// 	
+// 	}
+	
+	public static boolean alive()
 	{
-		boolean animal = true;
-	
+		if ((wolf == sheep) && human != wolf && wolf != cabb)	
+		{	
+			System.out.println("You lose. The Wolf ate the Sheep"); 
+			return false;	
+		}
+		
+		if ((cabb == sheep) && human != cabb && wolf != cabb)
+		{	
+			System.out.println("You lose. The Sheep ate the cabbage");
+			return false;
+		}
+		
+		else
+			return true;
 	}
+// 	public static void youWin()
+// 	{
+// 			
+// 		System.out.print("____    ____  ______    __    __     ____    __    ____  __  .__   __.");
+// 		System.out.print("\   \  /   / /  __  \  |  |  |  |    \   \  /  \  /   / |  | |  \ |  |");
+// 		System.out.print(" \   \/   / |  |  |  | |  |  |  |     \   \/    \/   /  |  | |   \|  |"); 
+// 		System.out.print("  \_    _/  |  |  |  | |  |  |  |      \            /   |  | |  . `  |"); 
+// 		System.out.print(" 	  |  |    |  `--'  | |  `--'  |       \    /\    /    |  | |  |\   |"); 
+// 		System.out.print("	  |__|     \______/   \______/         \__/  \__/     |__| |__| \__|");
+// 
+// 	}
+// 	
+// 	
 	
 	
 }	
