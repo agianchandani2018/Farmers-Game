@@ -136,20 +136,7 @@ public class FarmersGame
 	
 		
 	}
-	
-// 	public static boolean gameOver(alive)
-// 	{
-// 		if (alive == true && cabb == true && sheep == true && wolf == true && human == true)
-// 		{	
-// 			System.out.print("YOU WIN!!");
-// 			return true;
-// 		}	
-// 		
-// 		else	
-// 			return false;
-// 
-// 	
-// 	}
+
 	
 	/**
 	* <This method checks to make sure everyone is alive after each move>
