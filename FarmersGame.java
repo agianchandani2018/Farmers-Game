@@ -1,5 +1,5 @@
 /**
-* <description of project>
+* <This is the farmers game that interacts with the user. It lets them choose which animals go to the other side without dying>
 * @author Ami Gianchandani
 * @date September 30, 2016
 *
@@ -25,9 +25,13 @@ public class FarmersGame
 	
 	displayGameStatus();
 	
-	game();
-			
+	game();		
 	}
+	
+	/**
+	* <This is a welcome message that explains the game>
+	*
+	*/	
 	
 	public static void welcome()
 	{
@@ -39,6 +43,13 @@ public class FarmersGame
 		//print out everyone on bank0	
 		
 	}	
+	
+	/**
+	* <This method displays the two banks with the status of the animals. 
+	* < Displays after every move
+	*
+	*/	
+	
 		
 	public static void displayGameStatus()
 	{
@@ -79,8 +90,8 @@ public class FarmersGame
 	
 	
 	/**
-	* <description>
-	*
+	* <Asks the user which item they want to move to the other side>
+	* <Executes the user's move and calls the method to make sure the animals are alive>
 	*
 	*/
 	
@@ -140,6 +151,11 @@ public class FarmersGame
 // 	
 // 	}
 	
+	/**
+	* <This method checks to make sure everyone is alive after each move>
+	*
+	*/	
+	
 	public static boolean alive()
 	{
 		if ((wolf == sheep) && human != wolf && wolf != cabb)	
@@ -157,6 +173,8 @@ public class FarmersGame
 		else
 			return true;
 	}
+
+
 // 	public static void youWin()
 // 	{
 // 			
